@@ -1,7 +1,6 @@
-사이트 신뢰성 엔지니어링 Site_Reilabillity_Engineering<br>
+사이트 신뢰성 엔지니어링 Site_Reliabillity_Engineering<br>
 챕터 1. 소개
 ==========
-
 ## 서비스 관리를 위해 시스템 관리자를 활용하는 방법
 
 ### 시스템 관리자란?
@@ -39,7 +38,7 @@ DEV OPS 로 나누는데 비용은 소소하지만, 종종 직접비용보다 �
 소프트웨어 서비스를 공급하는데 충돌은 필연적인 요소가 아님, 구글은 다른 접근 방법인 SRE를 사용.
 SRE 팀은 제품을 운영하면서 시스템 관리자가 수동으로 처리하던 일을 대신할 시스템을 개발하기 위해 소프트웨어 엔지니어를 채용
 
-### 사이트 신뢰성 엔지니어링이란? (Site Reilabillity Engineering)
+### 사이트 신뢰성 엔지니어링이란? (Site Reliabillity Engineering)
 SRE이란 운영팀을 위한 소프트웨어 엔지니어를 말함.
 
 ### SRE 구성방법
