@@ -15,6 +15,8 @@
 - **프로덕션 테스트**
     >WEB 서비스에 배포된 소프트웨어 시스템이 올바르게 동작 중인지 판단.
 ## 전통적인 테스트
+<img src='https://landing.google.com/sre/book/images/srle-1701.jpg'>
+
 ### 단위테스트 (Unit Test)
     소프트웨어 특정 단위(함수, 클래스)로 테스트 하며 독립적으로 테스트를 진행함
 
