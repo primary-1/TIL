@@ -11,7 +11,7 @@
 
 ### 셰익스 피어 예제 서비스에서 벌어질 수 있는 일
 <img src='https://landing.google.com/sre/book/images/srle-2202.jpg'>
-```text
+```
 이렇게 된다면 A에 1000 이라는 데이터의 량을 감당해야한다.
 결국 지연응답 혹은 오작동이 발생하여 A가 다운이 된다면
 
