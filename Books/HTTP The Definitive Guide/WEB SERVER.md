@@ -56,7 +56,7 @@
     고성능 웹 서버는 수천 개의 커넥션을 동시에 열 수 있도록 지원한다.
     이 커넥션들은 웹 서버가 전 세계의 클라이언트와 각각 한 개 이상의 커넥션을 통해 통신할 수 있게 해준다.
 
-<img src="../Image/Web server input, output architectures.png">
+<img src="../Image/Web server input output architectures.png">
 
 1. 단일 스레드 웹 서버
     ```text
