@@ -530,3 +530,37 @@ VM당 서비스 하나만 수행한다면, 전체 시스템을 로컬 머신에 
 #### 도커
 
 [도커의 대한 내용은 많아 이 링크에서 찾아보시길 바랍니다.](https://github.com/liars2/TIL/blob/master/Books/Building%20Microservices/Docker.md)
+
+배포 인터페이스
+---------------
+
+    어떤 기술이던, 어떤 서비스이던 배포하는데는 일관된 인터페이스를 유지해야한다.
+    개발용 환경 -> 실제 운영 환경 까지 배포하는 것도 유사한 배포 메커니즘을 유지하기 원하는데
+
+왜냐하면, 배포 프로세스가 완전히 다르기 때문에 실환경에서 문제를 발견하는 것이다!
+
+여러가지 배포 기법중에 가장 쉽고, 일관성이 있는 배포 방법은 매개 변수 전달이 가능한 한 줄의 명령행 호출이다.
+
+이런 한 줄의 매개 변수가 포함된 배포 방법은 여러가지만 있지만(쉘 스크립트, 배치 파일..), 대표적으로 패브릭이 있다.
+
+### 패브릭
+[패브릭 공식 홈페이지](http://www.fabfile.org/)
+
+    패브릭은 필요한 작업들을 미리 정의하여, 매개 변수를 사용하여 동작하는 파이썬 라이브러리중 하나인데
+    이 것을 사용한다면, 쉽게 배포 프로세스를 정의 할 수 있다.
+
+##### pseudo code
+
+```
+def update_name_file(server_path='localhost:9000', name='fabric'):
+    print('hello %s!' % (name))
+    conenction(server_path)
+    ...
+```
+
+To deploy name file via fabric
+```
+fab update_name_file server_path:192.168.0.1 name:Simon
+```
+
+**이런식으로 일관성 있도록 배포가 가능하다!**
