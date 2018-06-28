@@ -12,9 +12,6 @@
 
     또 DevOps 혹은 SRE의 발전으로 빠른 배포 주기, 그리고 마이크로서비스 아키텍처로 더 작게 서비스를 배포한다면.. 평생 서버만 구성해야 하는가?
 
-서버를 쉽게 설치하기 위한 노력들
-------------------------
-
 도커의 등장
 ------------
 
@@ -43,19 +40,19 @@
 
 <img src="https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/vm-vs-docker.png">
 
-*VM과 Docker*
+*VM과 Docker의 비교*
 
 도커의 컨테이너는 구격화되어 조립 PC, AWS, Google Cloud등 사용할 수 있습니다.
 
 ### 이미지
 
-    서비스의 필요한 코드, 런타임 프로그램, 시스템 툴들, 시스템 라이브러리, 세팅.. 들을 모와둔 것이다!
+    서비스의 필요한 코드, 런타임 프로그램, 시스템 툴들, 시스템 라이브러리, 세팅.. 들을 모아 둔 것이다!
     이미지 하나만 있으면 Ctrl + C, V 으로 쉽게 여러 서버스를 올릴 수 있다!
 
 
 참고 자료
 --------
-https://www.youtube.com/watch?v=wW9CAH9nSLs&feature=youtu.be
+https://www.youtube.com/watch?v=wW9CAH9nSLs&feature=youtu.beㅇ
 
 https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html
 
