@@ -63,7 +63,9 @@
 ##### Boot File System
 
     부트로더와 커널이 있는 장소, User들은 이 곳을 건드릴 수 없다.
-    부팅 과정이 끝난 직후 커널 전체가 메모리에 있고, [initrd](http://croky.tistory.com/entry/%EC%B4%88%EA%B8%B0-RAM-%EB%94%94%EC%8A%A4%ED%81%AC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-initrd)와 연결된 RAM의 정보를 마운트 초기화 하고 언마운트 한다.
+    부팅 과정이 끝난 직후 커널 전체가 메모리에 있고, initrd와 연결된 RAM의 정보를 마운트 초기화 하고 언마운트 한다.
+
+[initrd](http://croky.tistory.com/entry/%EC%B4%88%EA%B8%B0-RAM-%EB%94%94%EC%8A%A4%ED%81%AC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-initrd)
 
 ##### Root File System
 
@@ -82,6 +84,22 @@
 그렇게 된다면, 여러개의 read-only 파일시스템이 있을 수 있으며, 도커는 이들의 파일시스템들을 layer로써 생각을 합니다.
 
 <img src="https://subicura.com/assets/article_images/2017-01-19-docker-guide-for-beginners-1/image-layer.png">
+
+### 격리되어 있는 프로세스
+
+위 설명대로라면, 프로세스를 격리시킬 수 있다고 하는데. 그런 기능이 어디서 존재할 수 있는가?
+
+레드햇 리눅스 6 버전에서는 컨트롤 그룹이라는 새로운 커널 기능을 제공한다. 이 기능으로 격리된 프로세스를 만들 수 있는데 자세한 설명은 밑에 있다.
+
+#### 컨트롤 그룹
+
+Control group을 통해서 CPU 시간, 시스템 메모리, 네트워크 대역폭 같은 자원이나 조합을 시스템에서 실행 중인 프로세스 간에 할당 할 수 있습니다.
+
+#### 네임스페이스
+
+컨테이너마다 다른 유저와(uid) 그룹이(gid) 존재할 수 있습니다!
+이게 무슨말이냐면 컨테이너 안에 있는 Root권한을 효율적으로 제어할 수 있습니다.
+
 
 
 
