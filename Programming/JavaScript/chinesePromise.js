@@ -6,42 +6,51 @@ class ChinesePromise extends EventEmitter {
     this.state = 'pending';
     this.value = undefined;
 
-    this.addListener('resolve', (value) => {
+    this.once('resolve', (value) => {
       this.value = value;
-      this.state = 'fulfiled';
+      this.state = 'resolve';
     });
-    this.addListener('reject', (message) => {
+    this.once('reject', (message) => {
       this.value = message;
       this.state = 'reject';
 
       throw new Error(`Unhandled Reject: ${message}`);
     });
 
-    fn(_ => this.emit('resolve', _), _ => this.emit('reject', _));
+    if (fn && typeof fn === 'function') {
+      fn(x => this.emit('resolve', x), x => this.emit('reject', x));
+    }
   }
 
   set state(state) {
-    if (state === 'pending' || state === 'fulfiled' || state === 'rejected') {
+    if (state === 'pending' || state === 'resolve' || state === 'reject') {
       this.emit(state);
       return state;
     }
   }
-
+ 
   then(fn) {
-    if (typeof fn !== 'function') {
-      this.state('fulfiled');
-      return fn;
-    }
-    this.addListener('fulfiled', () => new ChinesePromise(fn));
+    const newPromise = new ChinesePromise();
+    this.once('resolve', () => {
+      try {
+        const result = fn(this.value);
+        newPromise.emit('resolve', result);
+        return result;  
+      } catch (err) {
+        newPromise.emit('reject', err);
+      }
+    });
+    
+    return newPromise;
   }
 }
 
-new ChinesePromise(
-  (resolve, reject) => setTimeout(_ => {
-    console.log('1');
-    resolve(1);
-  }, 3000))
-  .then((resolve, reject) => setTimeout(_ => {
-    console.log('2');
-    resolve(2);
-  }, 5000));
+new ChinesePromise((resolve, reject) => setTimeout(_ => {
+  console.log('1');
+  resolve(1);
+}, 3000))
+.then((val) => {
+  console.log(val + 3);
+  return val + 3;
+})
+.then((val) => console.log(val + 4));
